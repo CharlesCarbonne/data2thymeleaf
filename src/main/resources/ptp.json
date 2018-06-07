@@ -1,0 +1,16 @@
+{
+  "title" : "Titre de l'article",
+  "author" : "Auteur de l'article",
+  "generationDate" : null,
+  "baseUri" : null,
+  "articles" : [ {
+    "title" : "Titre Article1",
+    "content" : "Texte article1",
+    "articles" : null
+  }, {
+    "title" : "Titre Article2",
+    "content" : "Texte article2",
+    "articles" : null
+  } ],
+  "pageNumerotation" : null
+}
