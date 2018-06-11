@@ -5,8 +5,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<h1 th:text="${pageToProcess.data.title}"> Title </h1>
 
-<h1 th:text="${ptp.title}"> Title </h1>
-
+	<th:block th:each="article : ${pageToProcess.data.data}">
+		<h2 th:text="${article.title}"> Article Title </h2>
+		<p th:text="${article.content}">Article content</p>
+		
+		<th:block th:if="${article.data != null}" th:each="subArticle : ${article.data}" th:insert="fragments/data.html :: dataFragment">
+		</th:block>
+	</th:block>
+	
 </body>
 </html>

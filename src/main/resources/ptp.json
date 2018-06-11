@@ -1,16 +1,38 @@
 {
-  "title" : "Titre de l'article",
-  "author" : "Auteur de l'article",
-  "generationDate" : null,
-  "baseUri" : null,
-  "articles" : [ {
-    "title" : "Titre Article1",
-    "content" : "Texte article1",
-    "articles" : null
-  }, {
-    "title" : "Titre Article2",
-    "content" : "Texte article2",
-    "articles" : null
-  } ],
-  "pageNumerotation" : null
+  "data" : {
+    "title" : "Main Title",
+    "content" : "Intro blabla lorem ipsum",
+    "data" : [ {
+      "title" : "Article 1",
+      "content" : "Contenu Article 1",
+      "data" : [ {
+        "title" : "Article 1 a",
+        "content" : "Contenu article 1 a",
+        "data" : null
+      }, {
+        "title" : "Article 1 b",
+        "content" : "Contenu article 1 b",
+        "data" : null
+      } ]
+    }, {
+      "title" : "Article 2",
+      "content" : "Contenu article 2",
+      "data" : [ {
+        "title" : "Article 2 a",
+        "content" : "Contenu article 2 a",
+        "data" : null
+      }, {
+        "title" : "Article 2 b",
+        "content" : "Contenu article 2 b",
+        "data" : null
+      } ]
+    } ]
+  },
+  "config" : {
+    "title" : "Titre du document",
+    "author" : "Auteur",
+    "generationDate" : true,
+    "baseUri" : "BaseUri",
+    "pageNumerotation" : false
+  }
 }
