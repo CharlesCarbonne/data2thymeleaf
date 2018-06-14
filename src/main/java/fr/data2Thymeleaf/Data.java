@@ -6,6 +6,7 @@ public class Data {
 
 	private String title;
 	private String content;
+	private int level;
 	private List<Data> data;
 
 	public String getContent() {
@@ -17,7 +18,7 @@ public class Data {
 	}
 
 	public String getTitle() {
-		return title;
+		return "<h" + level + ">" + title + "</h" + level + ">";
 	}
 
 	public void setTitle(String title) {
@@ -34,7 +35,16 @@ public class Data {
 
 	@Override
 	public String toString() {
-		return "Article [title=" + title + ", content=" + content + ", articles=" + data + "]";
+		return "Data [title=" + title + ", content=" + content + ", level=" + level + ", data=" + data + "]";
+	}
+
+	public int getLevel() {
+		return level;
+
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
 	}
 
 }

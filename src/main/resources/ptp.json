@@ -2,28 +2,50 @@
   "data" : {
     "title" : "Main Title",
     "content" : "Intro blabla lorem ipsum",
+    "level" : 0,
     "data" : [ {
       "title" : "Article 1",
       "content" : "Contenu Article 1",
+      "level" : 2,
       "data" : [ {
         "title" : "Article 1 a",
         "content" : "Contenu article 1 a",
-        "data" : null
+        "level" : 3,
+        "data" : [ {
+          "title" : "Article 1 a / a",
+          "content" : "Contenu article 1 a / a",
+          "level" : 4,
+          "data" : null
+        }, {
+          "title" : "Article 1 a / b",
+          "content" : "Contenu article 1 a / b",
+          "level" : 4,
+          "data" : null
+        }, {
+          "title" : "Article 1 a / c",
+          "content" : "Contenu article 1 a / c",
+          "level" : 4,
+          "data" : null
+        } ]
       }, {
         "title" : "Article 1 b",
         "content" : "Contenu article 1 b",
+        "level" : 3,
         "data" : null
       } ]
     }, {
       "title" : "Article 2",
       "content" : "Contenu article 2",
+      "level" : 0,
       "data" : [ {
         "title" : "Article 2 a",
         "content" : "Contenu article 2 a",
+        "level" : 3,
         "data" : null
       }, {
         "title" : "Article 2 b",
         "content" : "Contenu article 2 b",
+        "level" : 3,
         "data" : null
       } ]
     } ]
@@ -34,5 +56,6 @@
     "generationDate" : true,
     "baseUri" : "BaseUri",
     "pageNumerotation" : false
-  }
+  },
+  "template" : null
 }

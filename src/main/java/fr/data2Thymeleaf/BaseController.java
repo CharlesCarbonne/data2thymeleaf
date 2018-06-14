@@ -2,10 +2,10 @@ package fr.data2Thymeleaf;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,10 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 
@@ -28,15 +25,8 @@ public class BaseController {
 	@Autowired
 	protected SpringTemplateEngine templateEngine;
 
-	@GetMapping("/greeting")
-	public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name,
-			Model model) {
-		model.addAttribute("name", name);
-		return "greeting";
-	}
-
 	@RequestMapping("/ptp")
-	public void ptp(HttpServletRequest request, HttpServletResponse response) {
+	public void pageToProcess(HttpServletRequest request, HttpServletResponse response) {
 		PageToProcess pageToProcess = new PageToProcess();
 		ObjectMapper om = new ObjectMapper();
 		try {
@@ -45,6 +35,14 @@ public class BaseController {
 			e.printStackTrace();
 		}
 
+		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+		          new FileOutputStream("test.txt"), "utf-8"))){
+		    
+		    writer.write(pageToProcess.toString());
+		} catch (IOException ex) {
+		    ex.printStackTrace();
+		}
+		
 		System.out.println(pageToProcess.toString());
 
 		WebContext thymeleafContext = new WebContext(request, response, request.getServletContext(), Locale.FRANCE);
@@ -53,10 +51,13 @@ public class BaseController {
 		
 		String htmlContent = templateEngine.process("ptp", thymeleafContext);
 		
-		try {
-			Files.write(Paths.get("src/main/resources/result/test.html"), htmlContent.getBytes());
-		} catch (IOException e1) {
-			e1.printStackTrace();
+
+		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+		          new FileOutputStream("test.html"), "utf-8"))){
+		    
+		    writer.write(htmlContent);
+		} catch (IOException ex) {
+		    ex.printStackTrace();
 		}
 		
 	}

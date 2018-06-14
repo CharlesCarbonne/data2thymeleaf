@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<th:block th:fragment="subArticleFragment(subArticle, index, level)" th:with="myLevel=${level+1}">
+		
+		<th:block th:utext="${subArticle.title}">SubArticle title</th:block>
+		<p th:text="${subArticle.content}">SubArticle content</p>
+		<th:block th:if="${subArticle.data !=null && !#lists.isEmpty(subArticle.data)}" th:each="item, status : ${subArticle.data}" >
+			<th:block th:replace="fragments/subArticle :: subArticleFragment(${item}, ${status.index}, ${myLevel})">
+			</th:block>
+		</th:block>
+</th:block>
+</body>
+
+</html>

@@ -5,7 +5,7 @@ public class PageToProcess {
 	private Data data;
 	private PageConfig config;
 
-	public PageToProcess(Data data, PageConfig config) {
+	public PageToProcess(Data data, PageConfig config, PageTemplate template) {
 		super();
 		this.data = data;
 		this.config = config;
@@ -36,6 +36,7 @@ public class PageToProcess {
 	public String toString() {
 		return "PageToProcess [data=" + data + ", config=" + config + "]";
 	}
+
 	
 
 	
